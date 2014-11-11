@@ -1640,6 +1640,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020033;
     }
     public static final class id {
+        public static final int LinearLayout=0x7f090047;
         public static final int action_bar=0x7f090033;
         public static final int action_bar_activity_content=0x7f090003;
         public static final int action_bar_container=0x7f090032;
@@ -1653,7 +1654,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090030;
         public static final int action_mode_bar_stub=0x7f09002f;
         public static final int action_mode_close_button=0x7f090022;
-        public static final int action_settings=0x7f090052;
+        public static final int action_settings=0x7f090053;
         public static final int activity_chooser_view_content=0x7f090023;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
@@ -1661,7 +1662,7 @@ containing a value of this type.
         public static final int challengeCategory=0x7f09004d;
         public static final int challengeDescription=0x7f09004c;
         public static final int challengeList=0x7f090045;
-        public static final int challengeListTab=0x7f090048;
+        public static final int challengeListTab=0x7f090050;
         public static final int challengeListView=0x7f090046;
         public static final int challengeName=0x7f09004b;
         public static final int challengePrivacy=0x7f09004e;
@@ -1669,7 +1670,7 @@ containing a value of this type.
         public static final int collapseActionView=0x7f090015;
         public static final int createAChallenge=0x7f09004a;
         public static final int createChallengeButton=0x7f09004f;
-        public static final int createChallengeTab=0x7f090047;
+        public static final int createChallengeTab=0x7f090049;
         public static final int decor_content_parent=0x7f090031;
         public static final int default_activity_button=0x7f090026;
         public static final int dialog=0x7f090019;
@@ -1688,8 +1689,8 @@ containing a value of this type.
         public static final int list_item=0x7f090027;
         public static final int login=0x7f090041;
         public static final int loginButton=0x7f090044;
-        public static final int manageChallenges=0x7f090050;
-        public static final int manageFriends=0x7f090051;
+        public static final int manageChallenges=0x7f090051;
+        public static final int manageFriends=0x7f090052;
         public static final int middle=0x7f09001d;
         public static final int never=0x7f090017;
         public static final int none=0x7f09000f;
@@ -1714,7 +1715,7 @@ containing a value of this type.
         public static final int showTitle=0x7f090012;
         public static final int split_action_bar=0x7f090004;
         public static final int submit_area=0x7f09003e;
-        public static final int tab3=0x7f090049;
+        public static final int tabHost=0x7f090048;
         public static final int tabMode=0x7f09000c;
         public static final int title=0x7f090029;
         public static final int top=0x7f09001f;

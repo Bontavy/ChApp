@@ -7,7 +7,6 @@ import java.util.List;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.*;
-import android.view.View.OnClickListener;
 import android.widget.*;
 
 
@@ -27,6 +26,19 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         descriptionText = (EditText) findViewById(R.id.challengeDescription);
         categoryText = (EditText) findViewById(R.id.challengeCategory);
         privacyText = (EditText) findViewById(R.id.challengePrivacy);
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+        
+        tabHost.setup();
+        
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("create challenge");
+        tabSpec.setContent(R.id.createChallengeTab);
+        tabSpec.setIndicator("Create Challenge");
+        tabHost.addTab(tabSpec);
+        
+        tabSpec = tabHost.newTabSpec("challenges list");
+        tabSpec.setContent(R.id.challengeListTab);
+        tabSpec.setIndicator("Challenges List");
+        tabHost.addTab(tabSpec);
         
         Button createChallengeButton = (Button) findViewById(R.id.createChallengeButton);
         createChallengeButton.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +46,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "Your Challenge has been created", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Your Challenge has been created!", Toast.LENGTH_SHORT).show();
 			}
 		});
         
@@ -45,7 +57,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
     }
 	
 	
-	private class ChallengeListAdapter extends ArrayAdapter<Challenge> {
+	/*private class ChallengeListAdapter extends ArrayAdapter<Challenge> {
 		public ChallengeListAdapter() {
 			super (CreateAChallengeActivity.this, R.layout.challenges_page, Challenges);
 		}
@@ -69,10 +81,10 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			
 			return view;
 		}
-	}
+	}*/                   
 	
 	
-	private void addChallenge(String name, String description, String category, String privacy) {
+	/*private void addChallenge(String name, String description, String category, String privacy) {
 		Challenges.add(new Challenge(name, description, category, privacy));
 	}
 	private void populateChallengePage() {
@@ -83,7 +95,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 		}
 		ArrayAdapter<Challenge> adapter = new ChallengeListAdapter();
 		challengeListView.setAdapter(adapter);
-	}
+	}*/
 	
 	
     @Override
