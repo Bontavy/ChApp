@@ -5,17 +5,28 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/challengeList"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/challengeList"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ListView
-        android:id="@+id/challengeListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/challengeDescription" />
 
-    </ListView>
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/challengeCategory" />
+
+    <TextView
+        android:id="@+id/privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/challengePrivacy" />
 
 </LinearLayout>

@@ -7,7 +7,7 @@
     android:orientation="vertical" >
 
     <TabHost
-        android:id="@+id/tabHost"
+        android:id="@+id/tabhost"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -28,6 +28,27 @@
                 android:layout_height="match_parent" >
 
                 <LinearLayout
+                    android:id="@+id/challengeListTab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/challengesList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/challengeList"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <ListView
+                        android:id="@+id/challengesListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                    </ListView>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/createChallengeTab"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -46,17 +67,17 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:ems="10"
-                        android:hint="@string/challengeName" />
+                        android:hint="@string/challengeName" >
+
+                        <requestFocus />
+                    </EditText>
 
                     <EditText
                         android:id="@+id/challengeDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="@string/challengeDescription" >
-
-                        <requestFocus />
-                    </EditText>
+                        android:hint="@string/challengeDescription" />
 
                     <EditText
                         android:id="@+id/challengeCategory"
@@ -77,17 +98,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/createChallengeButton" />
-
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/challengeListTab"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" >
-
-                </LinearLayout>
             </FrameLayout>
+
         </LinearLayout>
     </TabHost>
 

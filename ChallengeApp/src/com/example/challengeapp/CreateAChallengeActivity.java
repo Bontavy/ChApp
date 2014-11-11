@@ -17,6 +17,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	List<Challenge> Challenges = new ArrayList<Challenge>();
 	ListView challengeListView;
 	
+	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,9 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         descriptionText = (EditText) findViewById(R.id.challengeDescription);
         categoryText = (EditText) findViewById(R.id.challengeCategory);
         privacyText = (EditText) findViewById(R.id.challengePrivacy);
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+        challengeListView = (ListView) findViewById(R.id.challengesListView);
+        
+        TabHost tabHost = (TabHost) findViewById(R.id.tabhost);
         
         tabHost.setup();
         
@@ -45,59 +48,65 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			
 			@Override
 			public void onClick(View v) {
+				// Adds a new challenge and populates the challenge list with it
+				addChallenge(nameText.getText().toString(), descriptionText.getText().toString(), categoryText.getText().toString(), privacyText.getText().toString());
+				populateChallengesList();
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Your Challenge has been created!", Toast.LENGTH_SHORT).show();
 			}
 		});
-        
-        
-        
-        
-        challengeListView = (ListView) findViewById(R.id.challengeListView);
-    }
+	}
 	
 	
-	/*private class ChallengeListAdapter extends ArrayAdapter<Challenge> {
+	/* Class adapters to the challenge list page */
+	private class ChallengeListAdapter extends ArrayAdapter<Challenge> {
 		public ChallengeListAdapter() {
 			super (CreateAChallengeActivity.this, R.layout.challenges_page, Challenges);
 		}
 		
+		
 		@Override
 		public View getView(int position, View view, ViewGroup parent) {
+			// If the view is not already inflated then inflates the view
 			if (view == null) {
 				view = getLayoutInflater().inflate(R.layout.challenges_page,  parent, false);
 			}
 			
+			// Create a challenge
 			Challenge currentChallenge = Challenges.get(position);
 			
-			TextView name = (TextView) view.findViewById(R.id.challengeName);
+			// Gets the input from the user and assigns them to the corresponding texts in the view
+			TextView name = nameText;
 			name.setText(currentChallenge.getName());
-			TextView description = (TextView) view.findViewById(R.id.challengeDescription);
+			TextView description = descriptionText;
 			description.setText(currentChallenge.getDescription());
-			TextView category = (TextView) view.findViewById(R.id.challengeCategory);
+			TextView category = categoryText;
 			category.setText(currentChallenge.getCategory());
-			TextView privacy = (TextView) view.findViewById(R.id.challengePrivacy);
+			TextView privacy = privacyText;
 			privacy.setText(currentChallenge.getPrivacy());
 			
 			return view;
 		}
-	}*/                   
+	}                   
 	
-	
-	/*private void addChallenge(String name, String description, String category, String privacy) {
+	/* Adds a new challenge
+	 * 
+	 * @param name the challenge name
+	 * @param description the challenge description
+	 * @param category the challenge category
+	 * @param privacy the challenge privacy
+	 */
+	private void addChallenge(String name, String description, String category, String privacy) {
 		Challenges.add(new Challenge(name, description, category, privacy));
 	}
-	private void populateChallengePage() {
-		for(int i = 0; i < 10; i++)
-		{
-			Challenge chall = new Challenge("ChalleneName"+i, "ChalleneName"+i,"ChalleneName"+i,"ChalleneName"+i );
-			Challenges.add(chall);
-		}
+	
+	/* Populates the challenge list with challenge info
+	 * 
+	 */
+	private void populateChallengesList() {
 		ArrayAdapter<Challenge> adapter = new ChallengeListAdapter();
 		challengeListView.setAdapter(adapter);
-	}*/
-	
-	
+	}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
