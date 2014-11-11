@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Challenge App</string>
+    <string name="manage_challenges">Manage Challenges</string>
+    <string name="manage_friends">Manage Friends</string>
+    <string name="action_settings">Settings</string>
+    <string name="createAChallenge">Create A Challenge</string>
+    <string name="manageChallenges">Manage Challenges</string>
+    <string name="manageFriends">Manage Friends</string>
+    <string name="challengeName">Name</string>
+    <string name="challengeDescription">Description</string>
+    <string name="challengeCategory">Category</string>
+    <string name="challengePrivacy">Privacy</string>
+    <string name="challengeCategoryPrompt">Select a Category</string>
+    <string name="challengeCategory1">Health and Fitness</string>
+	<string name="challengeCategory2">Money Savvy</string>
+	<string name="challengeCategory3">Social</string>
+	<string name="challengeCategory4">Other</string>
+	<string-array name="challengeCategory">
+	    <item>@string/challengeCategory1</item>
+	    <item>@string/challengeCategory2</item>
+	    <item>@string/challengeCategory3</item>
+	    <item>@string/challengeCategory4</item>
+	</string-array>
+	<string name="challengePrivacyPrompt">Select Challenge Privacy</string>
+    <string name="challengePrivacy1">Public</string>
+	<string name="challengePrivacy2">Private</string>
+	<string-array name="challengePrivacy">
+	    <item>@string/challengePrivacy1</item>
+	    <item>@string/challengePrivacy2</item>
+	</string-array>
+	    <string name="createChallengeButton">Create Challenge</string>
+	    <string name="login">Login</string>
+	    <string name="username">email address</string>
+	    <string name="password">password</string>
+	    <string name="loginButton">Login</string>
+	    <string name="textChallengeName">Challenge Name</string>
+	    <string name="textChallengeDescription">Description</string>
+	    <string name="textChallengeCategory">Category</string>
+	    <string name="textChallengePrivacy">Privacy</string>
+	    <string name="challengeList">Challenge List</string>
+</resources>
