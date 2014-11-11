@@ -1,4 +1,7 @@
 /*
+ * This class is the activity to login to the app
+ * After users login, they will be redirected to "Create Challenge" page to create their challenges
+ * 
  * @author: Bontavy Vorng
  * @version: v1
  * @since: v1

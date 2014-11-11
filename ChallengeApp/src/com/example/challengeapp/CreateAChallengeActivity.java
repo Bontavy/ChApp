@@ -1,3 +1,12 @@
+/* This class is the activity for allowing users to create a challenge with info such as the challenge name, description, category, and privacy.
+ * The challenge info will then be displayed on a page called "Challenge List" for users to see all the challenges that they have created.
+ * 
+ * @author: Bontavy Vorng
+ * @version: v4
+ * @since: v1
+ * 
+ */
+
 package com.example.challengeapp;
 
 
@@ -12,10 +21,10 @@ import android.widget.*;
 
 public class CreateAChallengeActivity extends ActionBarActivity {
 	
-	EditText nameText, descriptionText, categoryText, privacyText;
+	EditText nameText, descriptionText, categoryText, privacyText; // For the input from the user from the text fields
 	
-	List<Challenge> Challenges = new ArrayList<Challenge>();
-	ListView challengeListView;
+	List<Challenge> Challenges = new ArrayList<Challenge>();		// An array list for challenges
+	ListView challengeListView;										// A ListView for the list of challenges in the "Challenges List" page
 	
 	
 	@Override
@@ -23,12 +32,14 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_challenge_activity);
         
+        // Sets the input from the text fields to their corresponding EditText variables
         nameText = (EditText) findViewById(R.id.challengeName);
         descriptionText = (EditText) findViewById(R.id.challengeDescription);
         categoryText = (EditText) findViewById(R.id.challengeCategory);
         privacyText = (EditText) findViewById(R.id.challengePrivacy);
         challengeListView = (ListView) findViewById(R.id.challengesListView);
         
+        // Setups a tabHost to make two tabs for "Create Challenge" tab and "Challenges List" tab
         TabHost tabHost = (TabHost) findViewById(R.id.tabhost);
         
         tabHost.setup();
@@ -43,7 +54,8 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         tabSpec.setIndicator("Challenges List");
         tabHost.addTab(tabSpec);
         
-        Button createChallengeButton = (Button) findViewById(R.id.createChallengeButton);
+        // Creates a challenge after the "Create Challenge" Button is clicked
+        final Button createChallengeButton = (Button) findViewById(R.id.createChallengeButton);
         createChallengeButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -58,10 +70,10 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	}
 	
 	
-	/* Class adapters to the challenge list page */
+	/* Class adapts to the listview_item */
 	private class ChallengeListAdapter extends ArrayAdapter<Challenge> {
 		public ChallengeListAdapter() {
-			super (CreateAChallengeActivity.this, R.layout.challenges_page, Challenges);
+			super (CreateAChallengeActivity.this, R.layout.listview_item, Challenges);
 		}
 		
 		
@@ -69,20 +81,29 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 		public View getView(int position, View view, ViewGroup parent) {
 			// If the view is not already inflated then inflates the view
 			if (view == null) {
-				view = getLayoutInflater().inflate(R.layout.challenges_page,  parent, false);
+				view = getLayoutInflater().inflate(R.layout.listview_item,  parent, false);
 			}
 			
 			// Create a challenge
 			Challenge currentChallenge = Challenges.get(position);
 			
 			// Gets the input from the user and assigns them to the corresponding texts in the view
-			TextView name = nameText;
+			/*TextView name = nameText;
 			name.setText(currentChallenge.getName());
 			TextView description = descriptionText;
 			description.setText(currentChallenge.getDescription());
 			TextView category = categoryText;
 			category.setText(currentChallenge.getCategory());
 			TextView privacy = privacyText;
+			privacy.setText(currentChallenge.getPrivacy());*/
+			
+			TextView name = (TextView) view.findViewById(R.id.textChallengeName);
+			name.setText(currentChallenge.getName());
+			TextView description = (TextView) view.findViewById(R.id.textChallengeDescription);
+			description.setText(currentChallenge.getDescription());
+			TextView category = (TextView) view.findViewById(R.id.textChallengeCategory);
+			category.setText(currentChallenge.getCategory());
+			TextView privacy = (TextView) view.findViewById(R.id.textChallengePrivacy);
 			privacy.setText(currentChallenge.getPrivacy());
 			
 			return view;

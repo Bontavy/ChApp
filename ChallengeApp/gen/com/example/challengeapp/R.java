@@ -16,10 +16,6 @@ public final class R {
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
     }
-    public static final class array {
-        public static final int challengeCategory=0x7f0c0000;
-        public static final int challengePrivacy=0x7f0c0001;
-    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1640,7 +1636,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020033;
     }
     public static final class id {
-        public static final int LinearLayout=0x7f090049;
+        public static final int LinearLayout=0x7f090045;
         public static final int action_bar=0x7f090033;
         public static final int action_bar_activity_content=0x7f090003;
         public static final int action_bar_container=0x7f090032;
@@ -1654,27 +1650,25 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090030;
         public static final int action_mode_bar_stub=0x7f09002f;
         public static final int action_mode_close_button=0x7f090022;
-        public static final int action_settings=0x7f090057;
+        public static final int action_settings=0x7f090055;
         public static final int activity_chooser_view_content=0x7f090023;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
         public static final int bottom=0x7f09001e;
-        public static final int category=0x7f090047;
-        public static final int challengeCategory=0x7f090052;
-        public static final int challengeDescription=0x7f090051;
-        public static final int challengeListTab=0x7f09004b;
-        public static final int challengeName=0x7f090050;
-        public static final int challengePrivacy=0x7f090053;
-        public static final int challengesList=0x7f09004c;
-        public static final int challengesListView=0x7f09004d;
+        public static final int challengeCategory=0x7f09004b;
+        public static final int challengeDescription=0x7f09004a;
+        public static final int challengeListTab=0x7f09004e;
+        public static final int challengeName=0x7f090049;
+        public static final int challengePrivacy=0x7f09004c;
+        public static final int challengesList=0x7f09004f;
+        public static final int challengesListView=0x7f090050;
         public static final int checkbox=0x7f09002b;
         public static final int collapseActionView=0x7f090015;
-        public static final int createAChallenge=0x7f09004f;
-        public static final int createChallengeButton=0x7f090054;
-        public static final int createChallengeTab=0x7f09004e;
+        public static final int createAChallenge=0x7f090048;
+        public static final int createChallengeButton=0x7f09004d;
+        public static final int createChallengeTab=0x7f090047;
         public static final int decor_content_parent=0x7f090031;
         public static final int default_activity_button=0x7f090026;
-        public static final int description=0x7f090046;
         public static final int dialog=0x7f090019;
         public static final int disableHome=0x7f09000d;
         public static final int dropdown=0x7f09001a;
@@ -1691,15 +1685,11 @@ containing a value of this type.
         public static final int list_item=0x7f090027;
         public static final int login=0x7f090041;
         public static final int loginButton=0x7f090044;
-        public static final int manageChallenges=0x7f090055;
-        public static final int manageFriends=0x7f090056;
         public static final int middle=0x7f09001d;
-        public static final int name=0x7f090045;
         public static final int never=0x7f090017;
         public static final int none=0x7f09000f;
         public static final int normal=0x7f09000b;
         public static final int password=0x7f090043;
-        public static final int privacy=0x7f090048;
         public static final int progress_circular=0x7f090007;
         public static final int progress_horizontal=0x7f090008;
         public static final int radio=0x7f09002d;
@@ -1720,7 +1710,11 @@ containing a value of this type.
         public static final int split_action_bar=0x7f090004;
         public static final int submit_area=0x7f09003e;
         public static final int tabMode=0x7f09000c;
-        public static final int tabhost=0x7f09004a;
+        public static final int tabhost=0x7f090046;
+        public static final int textChallengeCategory=0x7f090053;
+        public static final int textChallengeDescription=0x7f090052;
+        public static final int textChallengeName=0x7f090051;
+        public static final int textChallengePrivacy=0x7f090054;
         public static final int title=0x7f090029;
         public static final int top=0x7f09001f;
         public static final int up=0x7f090001;
@@ -1779,15 +1773,13 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030015;
         public static final int abc_simple_dropdown_hint=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int challenges_page=0x7f030018;
-        public static final int create_challenge_activity=0x7f030019;
-        public static final int manage_challenges_activity=0x7f03001a;
-        public static final int manage_friends_activity=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int create_challenge_activity=0x7f030018;
+        public static final int listview_item=0x7f030019;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
     }
     public static final class menu {
-        public static final int create_a_challenge_menu=0x7f0d0000;
-        public static final int main=0x7f0d0001;
+        public static final int create_a_challenge_menu=0x7f0c0000;
+        public static final int main=0x7f0c0001;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1843,36 +1835,23 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000d;
-        public static final int action_settings=0x7f0a0012;
+        public static final int action_settings=0x7f0a0010;
         public static final int app_name=0x7f0a000f;
-        public static final int challengeCategory=0x7f0a0018;
-        public static final int challengeCategory1=0x7f0a001b;
-        public static final int challengeCategory2=0x7f0a001c;
-        public static final int challengeCategory3=0x7f0a001d;
-        public static final int challengeCategory4=0x7f0a001e;
-        public static final int challengeCategoryPrompt=0x7f0a001a;
-        public static final int challengeDescription=0x7f0a0017;
-        public static final int challengeList=0x7f0a002b;
-        public static final int challengeName=0x7f0a0016;
-        public static final int challengePrivacy=0x7f0a0019;
-        public static final int challengePrivacy1=0x7f0a0020;
-        public static final int challengePrivacy2=0x7f0a0021;
-        public static final int challengePrivacyPrompt=0x7f0a001f;
-        public static final int createAChallenge=0x7f0a0013;
-        public static final int createChallengeButton=0x7f0a0022;
-        public static final int login=0x7f0a0023;
-        public static final int loginButton=0x7f0a0026;
-        public static final int manageChallenges=0x7f0a0014;
-        public static final int manageFriends=0x7f0a0015;
-        public static final int manage_challenges=0x7f0a0010;
-        public static final int manage_friends=0x7f0a0011;
-        public static final int name=0x7f0a002c;
-        public static final int password=0x7f0a0025;
-        public static final int textChallengeCategory=0x7f0a0029;
-        public static final int textChallengeDescription=0x7f0a0028;
-        public static final int textChallengeName=0x7f0a0027;
-        public static final int textChallengePrivacy=0x7f0a002a;
-        public static final int username=0x7f0a0024;
+        public static final int challengeCategory=0x7f0a0014;
+        public static final int challengeDescription=0x7f0a0013;
+        public static final int challengeList=0x7f0a001f;
+        public static final int challengeName=0x7f0a0012;
+        public static final int challengePrivacy=0x7f0a0015;
+        public static final int createAChallenge=0x7f0a0011;
+        public static final int createChallengeButton=0x7f0a0016;
+        public static final int login=0x7f0a0017;
+        public static final int loginButton=0x7f0a001a;
+        public static final int password=0x7f0a0019;
+        public static final int textChallengeCategory=0x7f0a001d;
+        public static final int textChallengeDescription=0x7f0a001c;
+        public static final int textChallengeName=0x7f0a001b;
+        public static final int textChallengePrivacy=0x7f0a001e;
+        public static final int username=0x7f0a0018;
     }
     public static final class style {
         /** 
