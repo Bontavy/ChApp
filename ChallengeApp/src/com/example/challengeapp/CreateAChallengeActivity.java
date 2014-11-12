@@ -37,6 +37,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         descriptionText = (EditText) findViewById(R.id.challengeDescription);
         categoryText = (EditText) findViewById(R.id.challengeCategory);
         privacyText = (EditText) findViewById(R.id.challengePrivacy);
+        // The list view where challenges will be populated
         challengeListView = (ListView) findViewById(R.id.challengesListView);
         
         // Setups a tabHost to make two tabs for "Create Challenge" tab and "Challenges List" tab
@@ -87,16 +88,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			// Create a challenge
 			Challenge currentChallenge = Challenges.get(position);
 			
-			// Gets the input from the user and assigns them to the corresponding texts in the view
-			/*TextView name = nameText;
-			name.setText(currentChallenge.getName());
-			TextView description = descriptionText;
-			description.setText(currentChallenge.getDescription());
-			TextView category = categoryText;
-			category.setText(currentChallenge.getCategory());
-			TextView privacy = privacyText;
-			privacy.setText(currentChallenge.getPrivacy());*/
-			
 			TextView name = (TextView) view.findViewById(R.id.textChallengeName);
 			name.setText(currentChallenge.getName());
 			TextView description = (TextView) view.findViewById(R.id.textChallengeDescription);
@@ -112,10 +103,10 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	
 	/* Adds a new challenge
 	 * 
-	 * @param name the challenge name
-	 * @param description the challenge description
-	 * @param category the challenge category
-	 * @param privacy the challenge privacy
+	 * @param name is the challenge name
+	 * @param description is the challenge description
+	 * @param category is the challenge category
+	 * @param privacy is the challenge privacy
 	 */
 	private void addChallenge(String name, String description, String category, String privacy) {
 		Challenges.add(new Challenge(name, description, category, privacy));
@@ -128,6 +119,8 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 		ArrayAdapter<Challenge> adapter = new ChallengeListAdapter();
 		challengeListView.setAdapter(adapter);
 	}
+	
+	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

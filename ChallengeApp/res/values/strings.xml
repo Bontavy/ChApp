@@ -18,4 +18,5 @@
     <string name="textChallengeCategory">Category</string>
     <string name="textChallengePrivacy">Privacy</string>
     <string name="challengeList">Challenge List</string>
+    <string name="createAccountButton">Create Account</string>
 </resources>
