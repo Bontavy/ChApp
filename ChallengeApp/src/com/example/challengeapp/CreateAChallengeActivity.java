@@ -21,7 +21,7 @@ import android.widget.*;
 
 public class CreateAChallengeActivity extends ActionBarActivity {
 	
-	EditText nameText, descriptionText, categoryText, privacyText; // For the input from the user from the text fields
+	EditText titleText, descriptionText, categoryText, privacyText; // For the input from the user from the text fields
 	
 	List<Challenge> Challenges = new ArrayList<Challenge>();		// An array list for challenges
 	ListView challengeListView;										// A ListView for the list of challenges in the "Challenges List" page
@@ -33,7 +33,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         setContentView(R.layout.create_challenge_activity);
         
         // Sets the input from the text fields to their corresponding EditText variables
-        nameText = (EditText) findViewById(R.id.challengeName);
+        titleText = (EditText) findViewById(R.id.challengeName);
         descriptionText = (EditText) findViewById(R.id.challengeDescription);
         categoryText = (EditText) findViewById(R.id.challengeCategory);
         privacyText = (EditText) findViewById(R.id.challengePrivacy);
@@ -62,7 +62,9 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// Adds a new challenge and populates the challenge list with it
-				addChallenge(nameText.getText().toString(), descriptionText.getText().toString(), categoryText.getText().toString(), privacyText.getText().toString());
+				// TBD: fix the inputs to the challenge. populate the input page
+				Challenges.add(new Challenge(categoryText.getText().toString(), titleText.getText().toString(), descriptionText.getText().toString(), 
+						"pictures", privacyText.getText().toString(), false, false));
 				populateChallengesList();
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Your Challenge has been created!", Toast.LENGTH_SHORT).show();
@@ -88,8 +90,8 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			// Create a challenge
 			Challenge currentChallenge = Challenges.get(position);
 			
-			TextView name = (TextView) view.findViewById(R.id.textChallengeName);
-			name.setText(currentChallenge.getName());
+			TextView title = (TextView) view.findViewById(R.id.textChallengeName);
+			title.setText(currentChallenge.getTitle());
 			TextView description = (TextView) view.findViewById(R.id.textChallengeDescription);
 			description.setText(currentChallenge.getDescription());
 			TextView category = (TextView) view.findViewById(R.id.textChallengeCategory);
@@ -108,9 +110,11 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	 * @param category is the challenge category
 	 * @param privacy is the challenge privacy
 	 */
-	private void addChallenge(String name, String description, String category, String privacy) {
-		Challenges.add(new Challenge(name, description, category, privacy));
-	}
+//	private void addChallenge(String category, String title, String description, 
+//			String pictures, String privacy, String sponsored) {
+//		Challenges.add(new Challenge(category, title, description, 
+//				pictures, privacy, sponsored));
+//	}
 	
 	/* Populates the challenge list with challenge info
 	 * 
