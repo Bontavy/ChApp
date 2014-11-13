@@ -12,36 +12,92 @@
 package com.example.challengeapp;
 
 public class Challenge {
-	private String challengeName, challengeDescription, challengeCategory, challengePrivacy;
+	private String category;
+	private String title;
+	private String description;
+	private String pictures;	
+	// Add picture handling functionality.
+	// A picture must be resized and used as part of
+	// the description for a challenge.
+	private String privacy;
+	private boolean sponsored;
+	private boolean completed;
 	
 	/*
 	 * Constructor for Challenge
 	 * 
-	 * @param name for the name of the Challenge
+	 * @param title for the name of the Challenge
 	 * @param description for the description of the Challenge
 	 * @param category for the category of the Challenge
 	 * @param privacy for the privacy of the Challenge
 	 */
-	public Challenge (String name, String description, String category, String privacy) {
-		challengeName = name;
-		challengeDescription = description;
-		challengeCategory = category;
-		challengePrivacy = privacy;
+	public Challenge(String category, String title, String description,
+			String pictures, String privacy, boolean sponsored,
+			boolean completed) {
+		super();
+		this.category = category;
+		this.title = title;
+		this.description = description;
+		this.pictures = pictures;
+		this.privacy = privacy;
+		this.sponsored = sponsored;
+		this.completed = completed;
 	}
-	
-	public String getName() {
-		return challengeName;
-	}
-	
-	public String getDescription() {
-		return challengeDescription;
-	}
-	
+
 	public String getCategory() {
-		return challengeCategory;
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
-	public String getPrivacy() {
-		return challengePrivacy;
+	public String getTitle() {
+		return title;
 	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(String pictures) {
+		this.pictures = pictures;
+	}
+
+	public String getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(String privacy) {
+		this.privacy = privacy;
+	}
+
+	public boolean isSponsored() {
+		return sponsored;
+	}
+
+	public void setSponsored(boolean sponsored) {
+		this.sponsored = sponsored;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
+	
 }
