@@ -66,6 +66,7 @@
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/loginButton"
         android:layout_toRightOf="@+id/loginButton"
+        android:onClick="createAccount"
         android:text="@string/createAccountButton" />
 
 </RelativeLayout>
