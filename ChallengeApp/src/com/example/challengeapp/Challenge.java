@@ -11,106 +11,54 @@
 
 package com.example.challengeapp;
 
+import java.util.Calendar;
+import java.util.UUID;
+import java.util.Date;
+
 public class Challenge {
-	private String category;
-	private String title;
-	private String description;
-	private String pictures;	
-	// Add picture handling functionality.
-	// A picture must be resized and used as part of
-	// the description for a challenge.
-	private String privacy;
-	private boolean sponsored;
-	private boolean completed;
-	
+	private UUID Id;
+	private String challengeName, challengeDescription, challengeCategory, challengePrivacy;
+	private String CreatedBy;
+	private Date CreatedDate;
 	/*
 	 * Constructor for Challenge
 	 * 
-	 * @param title for the name of the Challenge
+	 * @param name for the name of the Challenge
 	 * @param description for the description of the Challenge
 	 * @param category for the category of the Challenge
 	 * @param privacy for the privacy of the Challenge
 	 */
-	public Challenge(String category, String title, String description,
-			String pictures, String privacy, boolean sponsored,
-			boolean completed) {
-		super();
-		this.category = category;
-		this.title = title;
-		this.description = description;
-		this.pictures = pictures;
-		this.privacy = privacy;
-		this.sponsored = sponsored;
-		this.completed = completed;
+	public Challenge (String name, String description, String category, String privacy, String username) {
+		Id = UUID.randomUUID();
+		challengeName = name;
+		challengeDescription = description;
+		challengeCategory = category;
+		challengePrivacy = privacy;
+		CreatedBy = username;
+		CreatedDate = Calendar.getInstance().getTime();
 	}
-
-	public Challenge modify(String category, String title, String description,
-			String pictures, String privacy, boolean sponsored,
-			boolean completed) {
-		this.category = category;
-		this.title = title;
-		this.description = description;
-		this.pictures = pictures;
-		this.privacy = privacy;
-		this.sponsored = sponsored;
-		this.completed = completed;
-		return this;
+	
+	public String getCreatedUser() {
+		return CreatedBy;
+	}
+	
+	public Date getCreatedDate() {
+		return CreatedDate;
+	}
+	
+	public String getName() {
+		return challengeName;
+	}
+	
+	public String getDescription() {
+		return challengeDescription;
 	}
 	
 	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
+		return challengeCategory;
 	}
 	
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(String pictures) {
-		this.pictures = pictures;
-	}
-
 	public String getPrivacy() {
-		return privacy;
+		return challengePrivacy;
 	}
-
-	public void setPrivacy(String privacy) {
-		this.privacy = privacy;
-	}
-
-	public boolean isSponsored() {
-		return sponsored;
-	}
-
-	public void setSponsored(boolean sponsored) {
-		this.sponsored = sponsored;
-	}
-
-	public boolean isCompleted() {
-		return completed;
-	}
-
-	public void setCompleted(boolean completed) {
-		this.completed = completed;
-	}
-	
 }
