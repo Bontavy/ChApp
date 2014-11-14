@@ -19,4 +19,7 @@
     <string name="textChallengePrivacy">Privacy</string>
     <string name="challengeList">Challenge List</string>
     <string name="createAccountButton">Create Account</string>
+    <string name="myChallengesRadioButton">My Challenges</string>
+    <string name="myFriendsChallengesRadioButton">My Friends Challenges</string>
+    <string name="allChallengesRadioButton">All Challenges</string>
 </resources>
