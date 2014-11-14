@@ -6,10 +6,9 @@ public class User {
 
 	private String username;
 	private String password;
-	private UUID id;
-	public String [] postedChallenges;
-	public String [] acceptedChallenges;
-	public UUID [] friends;
+	public List<Challenge> postedChallenges;
+	public List<Challenge> acceptedChallenges;
+	public List<String> friends;
 
 	public User() {
 		super();
@@ -17,20 +16,19 @@ public class User {
 		this.password = null;
 	}
 	
-	public User(String username, String password, UUID id){
+	public User(String username, String password){
 		super();
 		this.username = username;
 		this.password = password;
-		this.id=id;
 	}
 	
-	public User(String username, String password, UUID id, String [] postedChallenges, String [] acceptedChallenges){
+	public User(String username, String password, List<Challenge> postedChallenges, List<Challenge> acceptedChallenges, List<String> friends){
 		super();
 		this.username = username;
 		this.password = password;
-		this.id=id;
 		this.postedChallenges=postedChallenges;
 		this.acceptedChallenges=acceptedChallenges;
+		this.friends = friends;
 	}
 	
 	public String getUsername() {
@@ -49,34 +47,27 @@ public class User {
 		this.password = password;
 	}
 	
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(UUID id) {
-		this.id = id;
-	}
-	public String[] getPostedChallenges() {
+	public List<Challenge> getPostedChallenges() {
 		return postedChallenges;
 	}
 
-	public void setPostedChallenges(String[] postedChallenges) {
+	public void setPostedChallenges(List<Challenge> postedChallenges) {
 		this.postedChallenges = postedChallenges;
 	}
 
-	public String[] getAcceptedChallenges() {
+	public List<Challenge> getAcceptedChallenges() {
 		return acceptedChallenges;
 	}
 
-	public void setAcceptedChallenges(String[] acceptedChallenges) {
+	public void setAcceptedChallenges(List<Challenge> acceptedChallenges) {
 		this.acceptedChallenges = acceptedChallenges;
 	}
 	
-	public UUID[] getFriends() {
+	public List<String> getFriends() {
 		return friends;
 	}
 
-	public void setFriends(UUID[] friends) {
+	public void setFriends(List<String> friends) {
 		this.friends = friends;
 	}
 	
