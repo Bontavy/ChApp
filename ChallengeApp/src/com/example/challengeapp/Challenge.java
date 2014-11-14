@@ -44,6 +44,19 @@ public class Challenge {
 		this.completed = completed;
 	}
 
+	public Challenge modify(String category, String title, String description,
+			String pictures, String privacy, boolean sponsored,
+			boolean completed) {
+		this.category = category;
+		this.title = title;
+		this.description = description;
+		this.pictures = pictures;
+		this.privacy = privacy;
+		this.sponsored = sponsored;
+		this.completed = completed;
+		return this;
+	}
+	
 	public String getCategory() {
 		return category;
 	}
