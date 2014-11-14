@@ -27,8 +27,8 @@ public class Challenge {
 	private String privacy;
 	private boolean sponsored;
 	private boolean completed;
-	private String CreatedBy;
-	private Date CreatedDate;
+	private String createdBy;
+	private Date createdDate;
 	/*
 	 * Constructor for Challenge
 	 * 
@@ -37,37 +37,44 @@ public class Challenge {
 	 * @param category for the category of the Challenge
 	 * @param privacy for the privacy of the Challenge
 	 */
-	public Challenge (String name, String description, String category, String privacy, String username) {
+	public Challenge modify(String category, String title, String description,
+			String pictures, String privacy, String createdBy, boolean sponsored,
+			boolean completed) {
 		Id = UUID.randomUUID();
-		challengeName = name;
-		challengeDescription = description;
-		challengeCategory = category;
-		challengePrivacy = privacy;
-		CreatedBy = username;
-		CreatedDate = Calendar.getInstance().getTime();
+		this.category = category;
+		this.title = title;
+		this.description = description;
+		this.pictures = pictures;
+		this.privacy = privacy;
+		this.sponsored = sponsored;
+		this.completed = completed;
+		this.createdBy = createdBy;
+		this.createdDate = Calendar.getInstance().getTime();
+		
+		return this;
 	}
 	
 	public String getCreatedUser() {
-		return CreatedBy;
+		return createdBy;
 	}
 	
 	public Date getCreatedDate() {
-		return CreatedDate;
+		return createdDate;
 	}
 	
 	public String getName() {
-		return challengeName;
+		return this.title;
 	}
 	
 	public String getDescription() {
-		return challengeDescription;
+		return this.description;
 	}
 	
 	public String getCategory() {
-		return challengeCategory;
+		return this.category;
 	}
 	
 	public String getPrivacy() {
-		return challengePrivacy;
+		return this.privacy;
 	}
 }
