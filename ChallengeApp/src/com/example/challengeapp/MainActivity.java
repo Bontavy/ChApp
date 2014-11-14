@@ -1,11 +1,6 @@
 /*
  * This class is the activity to login to the app
  * After users login, they will be redirected to "Create Challenge" page to create their challenges
- * 
- * @author: Bontavy Vorng
- * @version: v1
- * @since: v1
- * 
  */
 
 package com.example.challengeapp;
@@ -36,7 +31,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
-	User currentUser;
+	static User currentUser;
 	EditText username;
 	EditText password;
 	Spinner sping;
@@ -79,7 +74,7 @@ public class MainActivity extends Activity {
     		String SPassword = "";
     		InputStream iS = openFileInput("Account.txt");
     		//FileInputStream fIn = openFileInput("Account.txt");
-    		InputStreamReader isr = new InputStreamReader(iS);
+    		//InputStreamReader isr = new InputStreamReader(iS);
     		java.util.Scanner read = new Scanner(iS);
     		//BufferedReader read = new BufferedReader(isr);
     		//String receiveString = "";
@@ -137,9 +132,10 @@ public class MainActivity extends Activity {
         		InputStreamReader isr = new InputStreamReader(iS);
         		java.util.Scanner read = new Scanner(iS);
                 
+        		read.next();
         		String userName = read.next();
         		String password = read.next();
-        		
+        		read.next();
                 if(read.hasNext())
                 {
                 	List<String> friends = null;
@@ -227,7 +223,7 @@ public class MainActivity extends Activity {
                 	if(bracket.equals("<"))
                 	{
                 		userName = read.next();
-                		if(userName == username.getText().toString())
+                		if(userName.equals(username.getText().toString()))
                 		{
                 			userNameUsed = true;
                 			iS.close();
@@ -251,13 +247,11 @@ public class MainActivity extends Activity {
     	
     	if(!userNameUsed)
     	{
-    		UUID newUserId = UUID.randomUUID();
     		try {
         		FileOutputStream fOut = openFileOutput("User:" + username.getText().toString() + ".txt", MODE_WORLD_READABLE);
         		OutputStreamWriter osw = new OutputStreamWriter(fOut);
         		BufferedWriter hh = new BufferedWriter(osw);
-        		hh.write(username.getText().toString());
-        		hh.write(password.getText().toString());
+        		hh.write("< " + username.getText().toString() + " " + password.getText().toString() + " > ");
         		hh.close();
         		//user = new User(Username.getText().toString(), Password.getText().toString());
         	}catch(FileNotFoundException e)

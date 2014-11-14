@@ -1,3 +1,6 @@
+/* This class is used to keep track of user info such as username, password, postedChallenges, acceptedChallenges, and friends
+ *  Add UUID attribute to fields
+ */
 package com.example.challengeapp;
 
 import java.util.*;

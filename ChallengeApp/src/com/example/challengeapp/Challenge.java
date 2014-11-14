@@ -2,11 +2,6 @@
  * Class for the challenge info including name, description, category, and privacy
  * Has a constructor method that takes in these parameters and sets them to their corresponding data fields
  * Has get methods for each data field
- * 
- * @author: Bontavy Vorng
- * @version: v1
- * @since: v1
- * 
  */
 
 package com.example.challengeapp;
