@@ -17,7 +17,16 @@ import java.util.Date;
 
 public class Challenge {
 	private UUID Id;
-	private String challengeName, challengeDescription, challengeCategory, challengePrivacy;
+	private String category;
+	private String title;
+	private String description;
+	private String pictures;	
+	// Add picture handling functionality.
+	// A picture must be resized and used as part of
+	// the description for a challenge.
+	private String privacy;
+	private boolean sponsored;
+	private boolean completed;
 	private String CreatedBy;
 	private Date CreatedDate;
 	/*
