@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class Challenge {
 	
-	private UUID Id;
+	private UUID id;
 	private String category;
 	private String title;
 	private String description;
@@ -43,7 +43,7 @@ public class Challenge {
 			boolean sponsored, boolean completed, String createdBy,
 			Date createdDate) {
 		super();
-		Id = id;
+		this.id = id;
 		this.category = category;
 		this.title = title;
 		this.description = description;
@@ -55,9 +55,8 @@ public class Challenge {
 		this.createdDate = createdDate;
 	}
 	public Challenge modify(String category, String title, String description,
-			String pictures, String privacy, String createdBy, boolean sponsored,
+			String pictures, String privacy, boolean sponsored,
 			boolean completed) {
-		Id = UUID.randomUUID();
 		this.category = category;
 		this.title = title;
 		this.description = description;
@@ -65,8 +64,6 @@ public class Challenge {
 		this.privacy = privacy;
 		this.sponsored = sponsored;
 		this.completed = completed;
-		this.createdBy = createdBy;
-		this.createdDate = Calendar.getInstance().getTime();
 		
 		return this;
 	}
@@ -126,10 +123,10 @@ public class Challenge {
 		this.completed = completed;
 	}
 	public UUID getId() {
-		return Id;
+		return id;
 	}
 	public void setId(UUID id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getCreatedBy() {
 		return createdBy;
