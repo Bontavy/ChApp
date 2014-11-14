@@ -16,6 +16,7 @@ import java.util.UUID;
 import java.util.Date;
 
 public class Challenge {
+	
 	private UUID Id;
 	private String category;
 	private String title;
@@ -37,6 +38,22 @@ public class Challenge {
 	 * @param category for the category of the Challenge
 	 * @param privacy for the privacy of the Challenge
 	 */
+	public Challenge(UUID id, String category, String title,
+			String description, String pictures, String privacy,
+			boolean sponsored, boolean completed, String createdBy,
+			Date createdDate) {
+		super();
+		Id = id;
+		this.category = category;
+		this.title = title;
+		this.description = description;
+		this.pictures = pictures;
+		this.privacy = privacy;
+		this.sponsored = sponsored;
+		this.completed = completed;
+		this.createdBy = createdBy;
+		this.createdDate = createdDate;
+	}
 	public Challenge modify(String category, String title, String description,
 			String pictures, String privacy, String createdBy, boolean sponsored,
 			boolean completed) {
