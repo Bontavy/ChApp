@@ -53,28 +53,78 @@ public class Challenge {
 		
 		return this;
 	}
-	
-	public String getCreatedUser() {
-		return createdBy;
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(String pictures) {
+		this.pictures = pictures;
+	}
+
+	public String getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(String privacy) {
+		this.privacy = privacy;
+	}
+
+	public boolean isSponsored() {
+		return sponsored;
+	}
+
+	public void setSponsored(boolean sponsored) {
+		this.sponsored = sponsored;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
+	public UUID getId() {
+		return Id;
+	}
+	public void setId(UUID id) {
+		Id = id;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 	public Date getCreatedDate() {
 		return createdDate;
 	}
-	
-	public String getName() {
-		return this.title;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 	
-	public String getDescription() {
-		return this.description;
-	}
-	
-	public String getCategory() {
-		return this.category;
-	}
-	
-	public String getPrivacy() {
-		return this.privacy;
-	}
 }
