@@ -46,7 +46,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         categoryText = (EditText) findViewById(R.id.challengeCategory);
         privacyText = (EditText) findViewById(R.id.challengePrivacy);
         // The list view where challenges will be populated
-        challengeListView = (ListView) findViewById(R.id.challengesListView);
+        challengeListView = (ListView) findViewById(R.id.myChallengesListView);
         
         // Setups a tabHost to make two tabs for "Create Challenge" tab and "Challenges List" tab
         TabHost tabHost = (TabHost) findViewById(R.id.tabhost);

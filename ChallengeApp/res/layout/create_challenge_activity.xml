@@ -33,39 +33,93 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical" >
 
-                    <TextView
-                        android:id="@+id/challengesList"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/challengeList"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                    <RadioButton
-                        android:id="@+id/myChallengesRadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/myChallengesRadioButton" />
-
-                    <RadioButton
-                        android:id="@+id/myFriendsChallengesRadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/myFriendsChallengesRadioButton" />
-
-                    <RadioButton
-                        android:id="@+id/allChallengesRadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/allChallengesRadioButton" />
-
-                    <ListView
-                        android:id="@+id/challengesListView"
+                    <TabHost
+                        android:id="@+id/secondtabhost"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
-                    </ListView>
+                        android:layout_height="match_parent" >
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+
+                            <TabWidget
+                                android:id="@android:id/tabs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+                            </TabWidget>
+
+                            <FrameLayout
+                                android:id="@android:id/tabcontent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <LinearLayout
+                                    android:id="@+id/myChallengesTab"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical" >
+
+                                    <TextView
+                                        android:id="@+id/myChallengesTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="@string/myChallengeTitle"
+                                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                                    <ListView
+                                        android:id="@+id/myChallengesListView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" >
+                                    </ListView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/myFriendsChallengesTab"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical" >
+
+                                    <TextView
+                                        android:id="@+id/myFriendsChallengeTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="@string/myFriendsChallengesTitle"
+                                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                                    <ListView
+                                        android:id="@+id/myFriendsChallengesListView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" >
+                                    </ListView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/allChallengesTab"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical" >
+
+                                    <TextView
+                                        android:id="@+id/allChallengesTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="@string/allChallengesTitle"
+                                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                                    <ListView
+                                        android:id="@+id/allChallengesListView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" >
+                                    </ListView>
+                                </LinearLayout>
+
+                            </FrameLayout>
+                        </LinearLayout>
+                    </TabHost>
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,16 +168,13 @@
 
                     <Button
                         android:id="@+id/createChallengeButton"
-                       	android:layout_width="200dp"
-	    				android:layout_height="wrap_content"
-	    				android:layout_gravity="center"
-	    				android:layout_marginTop="10dp"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:text="@string/createChallengeButton" />
-
                 </LinearLayout>
-
             </FrameLayout>
-
         </LinearLayout>
     </TabHost>
 

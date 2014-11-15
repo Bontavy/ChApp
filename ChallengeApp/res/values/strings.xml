@@ -22,4 +22,7 @@
     <string name="myChallengesRadioButton">My Challenges</string>
     <string name="myFriendsChallengesRadioButton">My Friends Challenges</string>
     <string name="allChallengesRadioButton">All Challenges</string>
+    <string name="myChallengeTitle">My Challenges</string>
+    <string name="myFriendsChallengesTitle">My Friends Challenges</string>
+    <string name="allChallengesTitle">All Challenges</string>
 </resources>
