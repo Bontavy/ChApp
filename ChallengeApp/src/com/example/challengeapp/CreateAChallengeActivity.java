@@ -1,25 +1,34 @@
 /* This class is the activity for allowing users to create a challenge with info such as the challenge name, description, category, and privacy.
  * The challenge info will then be displayed on a page called "Challenge List" for users to see all the challenges that they have created.
- * 
- * @author: Bontavy Vorng
- * @version: v4
- * @since: v1
- * 
  */
 
 package com.example.challengeapp;
 
-
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.*;
-import android.widget.*;
-
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateAChallengeActivity extends ActionBarActivity {
+	
 	
 	EditText titleText, descriptionText, categoryText, privacyText; // For the input from the user from the text fields
 	
@@ -31,7 +40,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_challenge_activity);
-        
         // Sets the input from the text fields to their corresponding EditText variables
         titleText = (EditText) findViewById(R.id.challengeName);
         descriptionText = (EditText) findViewById(R.id.challengeDescription);
@@ -61,11 +69,91 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 			
 			@Override
 			public void onClick(View v) {
+				User me = MainActivity.currentUser;
 				// Adds a new challenge and populates the challenge list with it
 				// TBD: fix the inputs to the challenge. populate the input page
-				Challenges.add(new Challenge(categoryText.getText().toString(), titleText.getText().toString(), descriptionText.getText().toString(), 
-						"pictures", privacyText.getText().toString(), false, false));
+				UUID id = UUID.randomUUID();
+				Challenge newChallenge = new Challenge(id, categoryText.getText().toString(), 
+						titleText.getText().toString(), descriptionText.getText().toString(),
+						"pictures", privacyText.getText().toString(), false, false, me.getUsername(), null);
+				me.postedChallenges.add(newChallenge);
+				Challenges.add(newChallenge);
 				populateChallengesList();
+				
+				try {
+	        		FileOutputStream fOut = openFileOutput("Challenges.txt", MODE_APPEND);
+	        		OutputStreamWriter osw = new OutputStreamWriter(fOut);
+	        		BufferedWriter hh = new BufferedWriter(osw);
+
+	        			hh.write("<");
+		        		hh.newLine();
+		        		hh.write(id+"");
+		        		hh.newLine();
+		        		hh.write(categoryText.getText().toString());
+		        		hh.newLine();
+		        		hh.write(titleText.getText().toString());
+		        		hh.newLine();
+		        		hh.write(descriptionText.getText().toString());
+		        		hh.newLine();
+		        		hh.write("none");
+		        		hh.newLine();
+		        		hh.write(false+"");
+		        		hh.newLine();
+		        		hh.write(false+"");
+		        		hh.newLine();
+		        		hh.write(me.getUsername());
+		        		hh.newLine();
+	        		hh.write(">");
+	        		
+	        		hh.close();
+	        		//user = new User(Username.getText().toString(), Password.getText().toString());
+	        	}catch(FileNotFoundException e)
+	        	{
+	        		 e.printStackTrace();
+	        	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				try {
+	        		FileOutputStream fOut = openFileOutput("User:" + me.getUsername() + ".txt", MODE_WORLD_READABLE);
+	        		OutputStreamWriter osw = new OutputStreamWriter(fOut);
+	        		BufferedWriter hh = new BufferedWriter(osw);
+	        		hh.write("< " + me.getUsername() + " " + me.getPassword() + " > ");
+	        		hh.newLine();
+	        		for(int i = 0; i < me.postedChallenges.size(); i++)
+	        		{
+	        			hh.write("<");
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).getId()+"");
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).getTitle());
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).getDescription());
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).getPictures());
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).getPrivacy());
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).isSponsored()+"");
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).isCompleted()+"");
+		        		hh.newLine();
+		        		hh.write(me.postedChallenges.get(i).getCreatedBy());
+		        		hh.newLine();
+	        		}
+	        		hh.write(">");
+	        		
+	        		hh.close();
+	        		//user = new User(Username.getText().toString(), Password.getText().toString());
+	        	}catch(FileNotFoundException e)
+	        	{
+	        		 e.printStackTrace();
+	        	} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Your Challenge has been created!", Toast.LENGTH_SHORT).show();
 			}
