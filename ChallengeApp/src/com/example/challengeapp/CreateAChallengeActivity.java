@@ -63,6 +63,26 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         tabSpec.setIndicator("Challenges List");
         tabHost.addTab(tabSpec);
         
+        
+        TabHost secondTabHost = (TabHost) findViewById(R.id.secondtabhost);
+        
+        secondTabHost.setup();
+        tabSpec = secondTabHost.newTabSpec("my challenges");
+        tabSpec.setContent(R.id.myChallengesTab);
+        tabSpec.setIndicator("My Challenges");
+        secondTabHost.addTab(tabSpec);
+        
+        tabSpec = secondTabHost.newTabSpec("my friends challenges");
+        tabSpec.setContent(R.id.myFriendsChallengesTab);
+        tabSpec.setIndicator("My Friends Challenges");
+        secondTabHost.addTab(tabSpec);
+        
+        tabSpec = secondTabHost.newTabSpec("all challenges");
+        tabSpec.setContent(R.id.allChallengesTab);
+        tabSpec.setIndicator("All Challenges");
+        secondTabHost.addTab(tabSpec);
+        
+        
         // Creates a challenge after the "Create Challenge" Button is clicked
         final Button createChallengeButton = (Button) findViewById(R.id.createChallengeButton);
         createChallengeButton.setOnClickListener(new View.OnClickListener() {
