@@ -1,7 +1,8 @@
 /*
- * Class for the challenge info including name, description, category, and privacy
+ * Class for the challenge info
  * Has a constructor method that takes in these parameters and sets them to their corresponding data fields
  * Has get methods for each data field
+ * 
  */
 
 package com.example.challengeapp;
@@ -25,6 +26,7 @@ public class Challenge {
 	private boolean completed;
 	private String createdBy;
 	private Date createdDate;
+	
 	/*
 	 * Constructor for Challenge
 	 * 
@@ -33,6 +35,21 @@ public class Challenge {
 	 * @param category for the category of the Challenge
 	 * @param privacy for the privacy of the Challenge
 	 */
+	public Challenge(UUID is, String category, String title,
+			String description, String privacy, 
+			boolean sponsored, boolean completed, String createdBy) {
+		super();
+		this.id = id;
+		this.category = category;
+		this.title = title;
+		this.description = description;
+		this.pictures = pictures;
+		this.privacy = privacy;
+		this.sponsored = sponsored;
+		this.completed = completed;
+		this.createdBy = createdBy;
+	}
+	
 	public Challenge(UUID id, String category, String title,
 			String description, String pictures, String privacy,
 			boolean sponsored, boolean completed, String createdBy,

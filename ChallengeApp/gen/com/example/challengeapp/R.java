@@ -1650,7 +1650,6 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090030;
         public static final int action_mode_bar_stub=0x7f09002f;
         public static final int action_mode_close_button=0x7f090022;
-        public static final int action_settings=0x7f09005e;
         public static final int activity_chooser_view_content=0x7f090023;
         public static final int allChallengesListView=0x7f090052;
         public static final int allChallengesTab=0x7f090050;
@@ -1687,6 +1686,7 @@ containing a value of this type.
         public static final int list_item=0x7f090027;
         public static final int login=0x7f090042;
         public static final int loginButton=0x7f090044;
+        public static final int logout=0x7f09005c;
         public static final int middle=0x7f09001d;
         public static final int myChallengesListView=0x7f09004c;
         public static final int myChallengesTab=0x7f09004a;
@@ -1720,10 +1720,8 @@ containing a value of this type.
         public static final int submit_area=0x7f09003e;
         public static final int tabMode=0x7f09000c;
         public static final int tabhost=0x7f090047;
-        public static final int textChallengeCategory=0x7f09005c;
         public static final int textChallengeDescription=0x7f09005b;
         public static final int textChallengeName=0x7f09005a;
-        public static final int textChallengePrivacy=0x7f09005d;
         public static final int title=0x7f090029;
         public static final int top=0x7f09001f;
         public static final int up=0x7f090001;
@@ -1844,7 +1842,6 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000d;
-        public static final int action_settings=0x7f0a0010;
         public static final int allChallengesRadioButton=0x7f0a0023;
         public static final int allChallengesTitle=0x7f0a0026;
         public static final int app_name=0x7f0a000f;
@@ -1858,6 +1855,8 @@ containing a value of this type.
         public static final int createChallengeButton=0x7f0a0016;
         public static final int login=0x7f0a0017;
         public static final int loginButton=0x7f0a001a;
+        public static final int logout=0x7f0a0010;
+        public static final int logoutOfApp=0x7f0a0027;
         public static final int myChallengeTitle=0x7f0a0024;
         public static final int myChallengesRadioButton=0x7f0a0021;
         public static final int myFriendsChallengesRadioButton=0x7f0a0022;

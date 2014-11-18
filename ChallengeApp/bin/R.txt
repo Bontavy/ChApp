@@ -348,7 +348,6 @@ int id action_menu_presenter 0x7f090006
 int id action_mode_bar 0x7f090030
 int id action_mode_bar_stub 0x7f09002f
 int id action_mode_close_button 0x7f090022
-int id action_settings 0x7f09005e
 int id activity_chooser_view_content 0x7f090023
 int id allChallengesListView 0x7f090052
 int id allChallengesTab 0x7f090050
@@ -385,6 +384,7 @@ int id listMode 0x7f09000a
 int id list_item 0x7f090027
 int id login 0x7f090042
 int id loginButton 0x7f090044
+int id logout 0x7f09005c
 int id middle 0x7f09001d
 int id myChallengesListView 0x7f09004c
 int id myChallengesTab 0x7f09004a
@@ -418,10 +418,8 @@ int id split_action_bar 0x7f090004
 int id submit_area 0x7f09003e
 int id tabMode 0x7f09000c
 int id tabhost 0x7f090047
-int id textChallengeCategory 0x7f09005c
 int id textChallengeDescription 0x7f09005b
 int id textChallengeName 0x7f09005a
-int id textChallengePrivacy 0x7f09005d
 int id title 0x7f090029
 int id top 0x7f09001f
 int id up 0x7f090001
@@ -474,7 +472,6 @@ int string abc_searchview_description_submit 0x7f0a0009
 int string abc_searchview_description_voice 0x7f0a000a
 int string abc_shareactionprovider_share_with 0x7f0a000e
 int string abc_shareactionprovider_share_with_application 0x7f0a000d
-int string action_settings 0x7f0a0010
 int string allChallengesRadioButton 0x7f0a0023
 int string allChallengesTitle 0x7f0a0026
 int string app_name 0x7f0a000f
@@ -488,6 +485,8 @@ int string createAccountButton 0x7f0a0020
 int string createChallengeButton 0x7f0a0016
 int string login 0x7f0a0017
 int string loginButton 0x7f0a001a
+int string logout 0x7f0a0010
+int string logoutOfApp 0x7f0a0027
 int string myChallengeTitle 0x7f0a0024
 int string myChallengesRadioButton 0x7f0a0021
 int string myFriendsChallengesRadioButton 0x7f0a0022
