@@ -47,7 +47,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	ListView challengeMyListView;
 	ListView challengeFriendsListView;
 	
-	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,10 +101,10 @@ public class CreateAChallengeActivity extends ActionBarActivity {
     		java.util.Scanner read = new Scanner(iS);
             
     		String id;
-    		String category;
-    		String description;
-    		String title;
-    		String privacy;
+    		String category = "";
+    		String description = "";
+    		String title = "";
+    		String privacy = "";
     		String isSponsored, isComplete, userName;
             while(read.hasNext())
             {
@@ -113,11 +112,68 @@ public class CreateAChallengeActivity extends ActionBarActivity {
             	String bracket = read.next();
             	if(bracket.equals("<"))
             	{
+            		String flag = "";
             		id = read.next();
-            		category = read.next();
-            		title = read.next();
-            		description = read.next();
-            		privacy = read.next();
+            		String rContent = read.next();
+            		//category = read.next();
+            		if(rContent.equals("'")){
+            			while(true){
+            				flag = read.next();
+            				if(flag.equals("'"))
+            				{
+            					break;
+            				} else 
+            				{
+            					category = category + " " + flag;
+            				}
+            			}
+            		}
+            		
+            		rContent = read.next();
+            		if(rContent.equals("'")){
+            			while(true){
+            				flag = read.next();
+            				if(flag.equals("'"))
+            				{
+            					break;
+            				} else 
+            				{
+            					title = title + " " + flag;
+            				}
+            			}
+            		}
+            		
+            		rContent = read.next();
+            		if(rContent.equals("'")){
+            			while(true){
+            				flag = read.next();
+            				if(flag.equals("'"))
+            				{
+            					break;
+            				} else 
+            				{
+            					description = description + " " + flag;
+            				}
+            			}
+            		}
+            		
+            		rContent = read.next();
+            		if(rContent.equals("'")){
+            			while(true){
+            				flag = read.next();
+            				if(flag.equals("'"))
+            				{
+            					break;
+            				} else 
+            				{
+            					privacy = privacy + " " + flag;
+            				}
+            			}
+            		}
+            		
+            		//title = read.next();
+            		//description = read.next();
+            		//privacy = read.next();
             		isSponsored = read.next();
             		isComplete = read.next();
             		userName = read.next();
@@ -179,9 +235,9 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	        		
 	        		String list = hh.toString();
 
-	        			hh.write("< " + id+" " + categoryText.getText().toString() + " " + 
-	        			titleText.getText().toString() + " " + descriptionText.getText().toString() + 
-	        			" " + privacyText.getText().toString() + " " + false+" " + false+" "+me.getUsername() + " >");
+	        			hh.write("< " + id+" ' " + categoryText.getText().toString() + " ' ' " + 
+	        			titleText.getText().toString() + " ' ' " + descriptionText.getText().toString() + 
+	        			" ' ' " + privacyText.getText().toString() + " ' " + false+" " + false+" "+me.getUsername() + " >");
 	        			hh.newLine();
 	        			list = hh.toString();
 	        		hh.close();
