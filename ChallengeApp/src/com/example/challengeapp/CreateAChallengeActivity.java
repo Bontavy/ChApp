@@ -1,3 +1,9 @@
+
+/**
+* @author Bontavy
+* @author Chuka
+*/
+
 /* This class is the activity for allowing users to create a challenge with info such as the challenge name, description, category, and privacy.
  * The challenge info will then be displayed on a page called "Challenge List" for users to see all the challenges that they have created.
  */
@@ -28,6 +34,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -46,7 +53,12 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	ListView challengeListView;										// A ListView for the list of challenges in the "Challenges List" page
 	ListView challengeMyListView;
 	ListView challengeFriendsListView;
+	ArrayAdapter<Challenge> adapter;
 	
+	/**********
+	@param savedInstanceState 
+	onCreate sets up the user interface once an activity is created
+	***********/
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +88,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         tabSpec.setIndicator("Challenges List");
         tabHost.addTab(tabSpec);
         
+        // Setups a tabHost to make three tabs for "My Challenges" tab, "My Friends Challenges" tab, "All Challenges" tab
         TabHost secondTabHost = (TabHost) findViewById(R.id.secondtabhost);
         
         secondTabHost.setup();
@@ -97,7 +110,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         try
     	{
     		InputStream iS = openFileInput("Challenges.txt");
-    		//InputStreamReader isr = new InputStreamReader(iS);
     		java.util.Scanner read = new Scanner(iS);
             
     		String id;
@@ -115,7 +127,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
             		String flag = "";
             		id = read.next();
             		String rContent = read.next();
-            		//category = read.next();
             		if(rContent.equals("'")){
             			while(true){
             				flag = read.next();
@@ -170,10 +181,7 @@ public class CreateAChallengeActivity extends ActionBarActivity {
             				}
             			}
             		}
-            		
-            		//title = read.next();
-            		//description = read.next();
-            		//privacy = read.next();
+
             		isSponsored = read.next();
             		isComplete = read.next();
             		userName = read.next();
@@ -191,6 +199,10 @@ public class CreateAChallengeActivity extends ActionBarActivity {
             			othersChallenges.add(new Challenge(UUID.fromString(id), category, title, description,privacy, Boolean.getBoolean(isComplete), Boolean.getBoolean(isSponsored), userName));
             			populateChallengesList(challengeFriendsListView, othersChallenges);
             		}
+            		category = "";
+            		description = "";
+            		title = "";
+            		privacy = "";
             	}                	
             }
             iS.close();
@@ -208,15 +220,14 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         final Button createChallengeButton = (Button) findViewById(R.id.createChallengeButton);
         createChallengeButton.setOnClickListener(new View.OnClickListener() {
 			
+        	
+        /***
+         *@param v view 
+         *Upon "clicking" the button the challenge is created
+         */
 			@Override
 			public void onClick(View v) {
 				User me = MainActivity.currentUser;
-				// Adds a new challenge and populates the challenge list with it
-				// TBD: fix the inputs to the challenge. populate the input page
-				//titleText.setText("test");
-				//descriptionText.setText("Test");
-				//categoryText.setText("Test");
-				//privacyText.setText("Test");
 				UUID id = UUID.randomUUID();
 				Challenges.add(new Challenge(id,categoryText.getText().toString(), 
 						titleText.getText().toString(), descriptionText.getText().toString(), 
@@ -226,7 +237,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 						titleText.getText().toString(), descriptionText.getText().toString(), 
 						privacyText.getText().toString(), false, false, me.getUsername()));
 				populateChallengesList(challengeMyListView, MyChallenges);
-				
 				
 				try {
 	        		FileOutputStream fOut = openFileOutput("Challenges.txt", MODE_APPEND);
@@ -241,7 +251,6 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	        			hh.newLine();
 	        			list = hh.toString();
 	        		hh.close();
-	        		//user = new User(Username.getText().toString(), Password.getText().toString());
 	        	}catch(FileNotFoundException e)
 	        	{
 	        		 e.printStackTrace();
@@ -249,48 +258,14 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				/*
-				try {
-	        		FileOutputStream fOut = openFileOutput("User:" + me.getUsername() + ".txt", MODE_WORLD_READABLE);
-	        		OutputStreamWriter osw = new OutputStreamWriter(fOut);
-	        		BufferedWriter hh = new BufferedWriter(osw);
-	        		hh.write("< " + me.getUsername() + " " + me.getPassword() + " > ");
-	        		hh.newLine();
-	        		for(int i = 0; i < me.postedChallenges.size(); i++)
-	        		{
-	        			hh.write("<");
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).getId()+"");
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).getTitle());
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).getDescription());
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).getPictures());
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).getPrivacy());
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).isSponsored()+"");
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).isCompleted()+"");
-		        		hh.newLine();
-		        		hh.write(me.postedChallenges.get(i).getCreatedBy());
-		        		hh.newLine();
-	        		}
-	        		hh.write(">");
-	        		
-	        		hh.close();
-	        		//user = new User(Username.getText().toString(), Password.getText().toString());
-	        	}catch(FileNotFoundException e)
-	        	{
-	        		 e.printStackTrace();
-	        	} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}*/
 				
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "Your Challenge has been created!", Toast.LENGTH_SHORT).show();
+				// Clears the EditText fields after the user creates a challenge
+				titleText.setText(null);
+				descriptionText.setText(null);
+				categoryText.setText(null);
+				privacyText.setText(null);
 			}
 		});
 	}
@@ -305,23 +280,32 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 		}
 		
 		@Override
+		/**
+		 * @param position is an int that determines what position an activity is in within the list
+		 * @param view is a View
+		 * @param parent is a ViewGroup that is the parent of the views
+		 * @returns a list view
+		 */
+		
 		public View getView(int position, View view, ViewGroup parent) {
 			// If the view is not already inflated then inflates the view
 			if (view == null) {
 				view = getLayoutInflater().inflate(R.layout.listview_item,  parent, false);
 			}
 			
-			// Create a challenge
+			// Create a challenge and gets the position of the current challenge
 			Challenge currentChallenge = challenges.get(position);
 			
+			// Gets the challenge name
 			TextView title = (TextView) view.findViewById(R.id.textChallengeName);
 			
-			
+			// Bolds and underlines the challenge name
 			SpannableString spanString = new SpannableString(currentChallenge.getTitle());
 			spanString.setSpan(new UnderlineSpan(), 0, spanString.length(), 0);
 			spanString.setSpan(new StyleSpan(Typeface.BOLD), 0, spanString.length(), 0);
-			
 			title.setText(spanString);
+			
+			// Gets the challenge  description
 			TextView description = (TextView) view.findViewById(R.id.textChallengeDescription);
 			description.setText(currentChallenge.getDescription());
 			
@@ -330,14 +314,19 @@ public class CreateAChallengeActivity extends ActionBarActivity {
 	}                   
 		
 	/* Populates the challenge list with challenge info
-	 * 
+	 * @param listView is a ListView that creates a view of the challenge list
+	 * @param challenges is a List<Challenge> that holds the challenges
 	 */
 	private void populateChallengesList(ListView listView, List<Challenge> challenges) {
-		ArrayAdapter<Challenge> adapter = new ChallengeListAdapter(challenges);
+		adapter = new ChallengeListAdapter(challenges);
+		// Sets a new listView
 		listView.setAdapter(adapter);
 	}
 	
-	
+	/**
+	 * @param menu is a Menu object 
+	 * @return true is returned if the menu was created
+	 */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -345,6 +334,10 @@ public class CreateAChallengeActivity extends ActionBarActivity {
         return true;
     }
 
+    /**
+     * @param item is a MenuItem object
+     * @return true if Logout button was selected 
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

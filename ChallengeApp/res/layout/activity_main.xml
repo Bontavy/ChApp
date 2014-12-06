@@ -6,67 +6,81 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/RoyalBlue"
     tools:context="com.example.challengeapp.MainActivity" >
 
+    <TextView
+        android:id="@+id/chapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="122dp"
+        android:text="@string/chappText"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/White" />
+    
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_alignEnd="@+id/loginButton"
+        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignRight="@+id/loginButton"
+        android:layout_alignStart="@+id/loginButton"
+        android:layout_below="@+id/chapp"
+        android:layout_marginTop="33dp"
+        android:background="@color/White"
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="textEmailAddress" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/username"
         android:layout_alignLeft="@+id/username"
+        android:layout_alignRight="@+id/username"
         android:layout_alignStart="@+id/username"
         android:layout_below="@+id/username"
+        android:layout_marginTop="5dp"
+        android:background="@color/White"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" >
 
-    <TextView
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp"
-        android:text="@string/login"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <requestFocus />
+    </EditText>
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/login"
-        android:layout_toLeftOf="@+id/login"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_toStartOf="@+id/chapp"
+        android:layout_toLeftOf="@+id/chapp"
         android:onClick="goToCreateAChallenge"
         android:text="@string/loginButton" />
 
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/login"
-        android:layout_alignStart="@+id/login"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_alignLeft="@+id/loginButton"
+        android:layout_alignRight="@+id/loginButton"
+        android:layout_alignEnd="@+id/loginButton"
+        android:layout_alignStart="@+id/chapp"
+        android:layout_below="@+id/loginButton"
         android:layout_toEndOf="@+id/loginButton"
         android:layout_toRightOf="@+id/loginButton"
         android:onClick="createAccount"
+        android:background="@color/RoyalBlue"
         android:text="@string/createAccountButton" />
 
 </RelativeLayout>

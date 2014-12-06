@@ -4,7 +4,8 @@
     android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/White" >
 
     <TabHost
         android:id="@+id/tabhost"
@@ -132,7 +133,7 @@
                         android:id="@+id/createAChallenge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="2dp"
                         android:gravity="center"
                         android:text="@string/createAChallenge"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -141,37 +142,41 @@
                         android:id="@+id/challengeName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="2dp"
                         android:ems="10"
-                        android:hint="@string/challengeName" />
+                        android:hint="@string/challengeName"
+                        android:inputType="text" />
 
                     <EditText
                         android:id="@+id/challengeDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="@string/challengeDescription" />
+                        android:hint="@string/challengeDescription"
+                        android:inputType="textLongMessage" />
 
                     <EditText
                         android:id="@+id/challengeCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="@string/challengeCategory" />
+                        android:hint="@string/challengeCategory"
+                        android:inputType="text" />
 
                     <EditText
                         android:id="@+id/challengePrivacy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="@string/challengePrivacy" />
+                        android:hint="@string/challengePrivacy"
+                        android:inputType="text" />
 
                     <Button
                         android:id="@+id/createChallengeButton"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="2dp"
                         android:text="@string/createChallengeButton" />
                 </LinearLayout>
             </FrameLayout>

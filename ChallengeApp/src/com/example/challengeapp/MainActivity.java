@@ -1,4 +1,6 @@
 /*
+ * @author Bontavy
+ * @author Chuka
  * This class is the activity to login to the app
  * After users login, they will be redirected to "Create Challenge" page to create their challenges
  */
@@ -34,8 +36,11 @@ public class MainActivity extends Activity {
 	static User currentUser;
 	EditText username;
 	EditText password;
-	Spinner sping;
 	
+	/*
+	 * @param savedInstanceState is a Bundle
+	 * onCreate creates the login screen
+	 */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,39 +56,13 @@ public class MainActivity extends Activity {
     	username = (EditText) findViewById(R.id.username);
     	password = (EditText) findViewById(R.id.password);
     	Boolean LoginSuccess = false;
-    	//File file = new File("Account.txt");
-    	
-    	//if(!file.exists())
-    	/*{
-    		try {
-        		FileOutputStream fOut = openFileOutput("Account.txt", MODE_WORLD_READABLE);
-        		OutputStreamWriter osw = new OutputStreamWriter(fOut);
-        		os..write("Read");
-        		osw.flush();
-        		osw.close();
-        	}catch(FileNotFoundException e)
-        	{
-        		 e.printStackTrace();
-        	}
-    		//Toast.makeText(getApplicationContext(), "creta", Toast.LENGTH_SHORT).show();
-    	}*/
     	
     	try
     	{
     		String SUsername = "";
     		String SPassword = "";
     		InputStream iS = openFileInput("Account.txt");
-    		//FileInputStream fIn = openFileInput("Account.txt");
-    		//InputStreamReader isr = new InputStreamReader(iS);
     		java.util.Scanner read = new Scanner(iS);
-    		//BufferedReader read = new BufferedReader(isr);
-    		//String receiveString = "";
-            //StringBuilder stringBuilder = new StringBuilder();
-           
-            //while ( (receiveString = read.readLine()) != null ) {
-            //    stringBuilder.append(receiveString);
-            //}
-             
             
             while(read.hasNext())
             {
@@ -96,14 +75,12 @@ public class MainActivity extends Activity {
             		if(SUsername.equals(username.getText().toString()) && SPassword.equals(password.getText().toString()))
             		{
             			LoginSuccess = true;
-            			//String i = read.next();
             			break;
             		}
             		String t = read.next();
             	}
             	
             }
-            //test = stringBuilder.toString();
             iS.close();
             read.close();
         
@@ -112,20 +89,8 @@ public class MainActivity extends Activity {
    		 e.printStackTrace();
     	}
     	
-    	/*try {
-    		FileOutputStream fOut = openFileOutput("Account.txt", MODE_WORLD_READABLE);
-    		OutputStreamWriter osw = new OutputStreamWriter(fOut);
-    		fOut.
-    		osw.write("");
-    		osw.flush();
-    		osw.close();
-    	}catch(FileNotFoundException e)
-    	{
-    		 e.printStackTrace();
-    	}*/
     	if(LoginSuccess)
     	{
-    		//currentUser = new User();
     		try
         	{
         		InputStream iS = openFileInput("User:" + username.getText().toString() + ".txt");
@@ -202,8 +167,12 @@ public class MainActivity extends Activity {
     	}
     }
     
+    /**
+     * @param view is a View object
+     * @throws Exception
+     * createAccount takes the username and password to create an account
+     */
     public void createAccount(View view) throws Exception {
-    	//User user;
     	username = (EditText) findViewById(R.id.username);
     	password = (EditText) findViewById(R.id.password);
     	Boolean userNameUsed = false;
@@ -253,12 +222,10 @@ public class MainActivity extends Activity {
         		BufferedWriter hh = new BufferedWriter(osw);
         		hh.write("< " + username.getText().toString() + " " + password.getText().toString() + " > ");
         		hh.close();
-        		//user = new User(Username.getText().toString(), Password.getText().toString());
         	}catch(FileNotFoundException e)
         	{
         		 e.printStackTrace();
         	}
-    		//Toast.makeText(getApplicationContext(), "creta", Toast.LENGTH_SHORT).show();
     		
     		try {
         		FileOutputStream fOut = openFileOutput("Account.txt", MODE_APPEND);
@@ -267,7 +234,6 @@ public class MainActivity extends Activity {
         		hh.write("< " + username.getText().toString() + " " + password.getText().toString() + " > ");
         		hh.close();
         		Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
-        		//user = new User(Username.getText().toString(), Password.getText().toString());
         	}catch(FileNotFoundException e)
         	{
         		 e.printStackTrace();
@@ -279,15 +245,26 @@ public class MainActivity extends Activity {
     	
     }
     
- //   public User getUser(){
-    	
-//    }
     
+    
+    /**
+     * @param menu is a Menu object
+     * @return boolean true if menu is created
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
+    
+    // Exits the app after the back button is pressed on the login screen
+    public void onBackPressed() {
+    	   Intent intent = new Intent(Intent.ACTION_MAIN);
+    	   intent.addCategory(Intent.CATEGORY_HOME);
+    	   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	   startActivity(intent);
+    	 }
     
 }

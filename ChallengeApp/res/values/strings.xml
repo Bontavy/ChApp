@@ -9,7 +9,6 @@
     <string name="challengeCategory">Category</string>
     <string name="challengePrivacy">Privacy</string>
 	<string name="createChallengeButton">Create Challenge</string>
-    <string name="login">Login</string>
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="loginButton">Login</string>
@@ -26,4 +25,5 @@
     <string name="myFriendsChallengesTitle">My Friends Challenges</string>
     <string name="allChallengesTitle">All Challenges</string>
     <string name="logoutOfApp">logoutButton</string>
+    <string name="chappText">ChApp</string>
 </resources>
